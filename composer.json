@@ -5,10 +5,17 @@
 	"license": "MIT",
 	"authors": [
 		{
-			"name": "Evan Mattson",
-			"email": "me@aaemnnost.tv"
+			"name": "JerryLiu",
+			"email": "j7.dev.gg@gmail.com",
+			"homepage": "https://github.com/j7-dev",
+			"role": "Developer"
 		}
 	],
+	"autoload": {
+		"psr-4": {
+			"J7\\Tests\\": "tests/"
+		}
+	},
 	"require": {
 		"roots/wordpress": "^6.0"
 	},
@@ -16,7 +23,8 @@
 		"pestphp/pest": "^1.22",
 		"phpunit/phpunit": "^9.0",
 		"wp-phpunit/wp-phpunit": "^6.0",
-		"yoast/phpunit-polyfills": "^1.0"
+		"yoast/phpunit-polyfills": "^1.0",
+		"j7-dev/wp-plugin-trait": "0.2.6"
 	},
 	"scripts": {
 		"test": "pest"
