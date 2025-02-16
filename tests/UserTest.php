@@ -1,7 +1,8 @@
 <?php
 
 use J7\Tests\Helper\User;
-use J7\Tests\Utils\STDOUT;
+
+
 
 beforeAll(function () {
 	User::instance();
@@ -16,18 +17,18 @@ afterEach(function () {
 });
 
 afterAll(function () {
-	User::instance()->delete();
+	User::instance()->tear_down();
 });
 
 it('用戶角色為 [顧客]', function () {
 
-		$user = get_user_by('id', User::instance()->user_id);
+		$user = User::instance()->user;
 		expect($user)->not->toBeNull();
 		expect($user->roles)->toContain('customer');
 });
 
-it('用戶 email 為 [test@gmail.com]', function () {
-		$user = get_user_by('id', User::instance()->user_id);
+it('用戶 email 為 [test@example.com]', function () {
+		$user = User::instance()->user;
 		expect($user)->not->toBeNull();
-		expect($user->user_email)->toEqual('test@gmail.com');
+		expect($user->user_email)->toEqual('test@example.com');
 });

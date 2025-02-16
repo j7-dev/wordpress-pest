@@ -6,11 +6,16 @@ namespace J7\Tests\Helper;
 
 use J7\Tests\Utils\STDOUT;
 
-class User
+/**
+ * User class
+ * 1. 實例化 User 類別時，會自動創建 test 用戶
+ * 2. 有 create 跟 delete 方法
+ */
+class User extends \WP_UnitTestCase
 {
 	use \J7\WpUtils\Traits\SingletonTrait;
 
-	public $user_id;
+	public $user;
 
 	public function __construct()
 	{
@@ -22,38 +27,23 @@ class User
 	 */
 	public function create()
 	{
-		$user_data = [
-			'role'         => 'customer',
-			'user_login'   => 'test',
-			'user_pass'    => 'test',
-			'user_email'   => 'test@gmail.com',
-		];
+		$user = self::factory()->user->create_and_get([
+			'role' => 'customer',
+			'user_login' => 'test',
+			'user_email' => 'test@example.com'
+		]);
 
-		// Check if user exists
-		$user = get_user_by('login', $user_data['user_login']);
+		$this->user = $user;
 
-		if ($user) {
-			$this->user_id = $user->ID;
-			STDOUT::err('用戶已經存在: #' . $this->user_id);
-			return;
-		}
-
-		$user_id_or_error = wp_insert_user($user_data);
-
-		if (\is_wp_error($user_id_or_error)) {
-			STDOUT::err('用戶創建失敗: ' . $user_id_or_error->get_error_message());
-			throw new \Exception('User creation failed: ' . $user_id_or_error->get_error_message());
-		} else {
-			$this->user_id = $user_id_or_error;
-			STDOUT::ok('用戶創建成功: #' . $this->user_id);
-		}
+		STDOUT::ok('用戶創建成功: #' . $this->user->ID);
 	}
 
 	/**
-	 * 刪除 test 用戶
+	 * 測試結束後 刪除 test 用戶
 	 */
-	public function delete()
+	public function tear_down()
 	{
-		\wp_delete_user($this->user_id);
+		parent::tear_down();
+		self::delete_user($this->user->ID);
 	}
 }
