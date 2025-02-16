@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace J7\Tests\Utils;
 
 class STDOUT {

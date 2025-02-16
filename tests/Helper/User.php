@@ -15,6 +15,7 @@ class User extends \WP_UnitTestCase
 {
 	use \J7\WpUtils\Traits\SingletonTrait;
 
+	/** @var \WP_User */
 	public $user;
 
 	public function __construct()

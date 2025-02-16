@@ -18,3 +18,4 @@ tests_add_filter('muplugins_loaded', function () {
 
 // Start up the WP testing environment.
 require getenv('WP_PHPUNIT__DIR') . '/includes/bootstrap.php';
+

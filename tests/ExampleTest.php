@@ -4,9 +4,6 @@ beforeEach(function () {
 		$required_plugins = [
 				'woocommerce/woocommerce.php'
 		];
-
-		add_filter('option_active_plugins', fn() => $required_plugins, 100);
-
 		foreach ($required_plugins as $plugin) {
 				require_once PLUGIN_DIR . $plugin;
 		}

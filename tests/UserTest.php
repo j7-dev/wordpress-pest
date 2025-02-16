@@ -2,21 +2,21 @@
 
 use J7\Tests\Helper\User;
 
-
-
 beforeAll(function () {
+	// 測試開始前執行
 	User::instance();
 });
 
 beforeEach(function () {
-		// User::instance();
+	// 每次測試前執行
 });
 
 afterEach(function () {
-		// User::instance()->delete();
+	// 每次測試後執行
 });
 
 afterAll(function () {
+	// 測試結束後執行
 	User::instance()->tear_down();
 });
 
