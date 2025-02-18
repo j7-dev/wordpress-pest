@@ -34,7 +34,11 @@ class Product extends \WP_UnitTestCase
 		\add_action('init', [$this, 'create']);
 
 		\do_action('plugins_loaded');
+		\do_action('after_setup_theme');
 		\do_action('init');
+		\do_action('wp_loaded');
+		\do_action('parse_request');
+		\do_action('send_headers');
 	}
 
 	public function required_plugins()
