@@ -1,7 +1,6 @@
 <?php
 
 use J7\Tests\Helper\Order;
-use J7\Tests\Helper\Product;
 use J7\Tests\Utils\STDOUT;
 
 beforeAll(function () {
