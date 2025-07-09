@@ -56,8 +56,8 @@ define('NONCE_SALT',       '4<dU36_OSQW7qO|s1d!Ld=F1jxzD VDwtzXzw#=Kt_jZ7$Gb#ZhB
 
 $table_prefix = 'tests_';   // Only numbers, letters, and underscores please!
 
-define('WP_TESTS_DOMAIN', 'hpos.local');
-define('WP_TESTS_EMAIL', 'j7.dev.gg@gmail.com');
+define('WP_TESTS_DOMAIN', 'wordpress-pest.test');
+define('WP_TESTS_EMAIL', 'test@test.com');
 define('WP_TESTS_TITLE', 'Test Mode');
 
 define('WP_PHP_BINARY', 'php');
