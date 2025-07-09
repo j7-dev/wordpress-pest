@@ -30,8 +30,8 @@ class User extends \WP_UnitTestCase
 	{
 		$user = self::factory()->user->create_and_get([
 			'role' => 'customer',
-			'user_login' => 'test',
-			'user_email' => 'test@example.com'
+			'user_login' => 'testtest',
+			'user_email' => 'testtest@example.com'
 		]);
 
 		$this->user = $user;

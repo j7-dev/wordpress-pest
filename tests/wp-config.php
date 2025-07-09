@@ -54,7 +54,7 @@ define('SECURE_AUTH_SALT', 'jTwUn1-vd1|~&=!Q_w+tUopF{Sk-4do7-a7[.cPTuV#+*!W!VG1b
 define('LOGGED_IN_SALT',   'e4;M+IXSnD-h6<lH%MkI]eYx<B-B?# ff$d&is<-Y;Fq(Ac+|6XcscL3 L+PfkZI');
 define('NONCE_SALT',       '4<dU36_OSQW7qO|s1d!Ld=F1jxzD VDwtzXzw#=Kt_jZ7$Gb#ZhBbe+j|zleG>|_');
 
-$table_prefix = 'tests_';   // Only numbers, letters, and underscores please!
+$table_prefix = 'wp_';   // Only numbers, letters, and underscores please!
 
 define('WP_TESTS_DOMAIN', 'wordpress-pest.test');
 define('WP_TESTS_EMAIL', 'test@test.com');

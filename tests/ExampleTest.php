@@ -11,14 +11,13 @@ beforeEach(function () {
 
 it('checks if WooCommerce class exists', function () {
 		add_action('init', function() {
-
 				expect(class_exists('WooCommerce'))->toBeTrue();
 		});
 		do_action('init');
 });
 
 it('checks if wc_get_product function exists', function () {
-	add_action('init', function() {
+		add_action('init', function() {
 				expect(function_exists('wc_get_product'))->toBeTrue();
 		});
 		do_action('init');

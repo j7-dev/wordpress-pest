@@ -27,8 +27,8 @@ it('用戶角色為 [顧客]', function () {
 		expect($user->roles)->toContain('customer');
 });
 
-it('用戶 email 為 [test@example.com]', function () {
+it('用戶 email 為 [testtest@example.com]', function () {
 		$user = User::instance()->user;
 		expect($user)->not->toBeNull();
-		expect($user->user_email)->toEqual('test@example.com');
+		expect($user->user_email)->toEqual('testtest@example.com');
 });
