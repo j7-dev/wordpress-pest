@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace J7\Tests\Helper;
 
 use J7\Tests\Utils\WC_UnitTestCase;
+use J7\Tests\Helper\Product;
+use J7\Tests\Helper\User;
 
 /**
  * Order class
@@ -31,15 +33,18 @@ class Order extends WC_UnitTestCase
 	 * card_hash?: string,
 	 * } $args
 	 *
-	 * @return void
+	 * @return self
 	 */
-	public function create($args = []):void
+	public function create($args = []):self
 	{
+		$user = User::instance()->user;
+		$product = Product::instance()->create()->products[0];
+
 		$default_args = array(
 			'status' => 'pending', // 等待付款中
 			'created_via' => 'admin', // default values are "admin", "checkout", "store-api"
 			'order_id' => 0, // 新建立訂單
-			'customer_id' => 1, // 客戶ID
+			'customer_id' => $user->ID, // 客戶ID
 		);
 
 		/**
@@ -55,6 +60,12 @@ class Order extends WC_UnitTestCase
 		 */
 		$args = \wp_parse_args($args, $default_args);
 		$this->order = \wc_create_order( $args );
+
+		$this->order->add_product($product, 2);
+		$this->order->calculate_totals();
+
+		$this->order->save();
+		return $this;
 	}
 
 		/**

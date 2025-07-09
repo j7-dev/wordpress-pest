@@ -16,8 +16,6 @@ abstract class WC_UnitTestCase extends \WP_UnitTestCase{
 	public function __construct()
 	{
 		\add_action('plugins_loaded', [$this, 'required_plugins'], -1);
-		\add_action('init', [$this, 'create']);
-
 		\do_action('plugins_loaded');
 		\do_action('after_setup_theme');
 		\do_action('init');

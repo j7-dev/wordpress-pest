@@ -22,7 +22,7 @@ class Product extends WC_UnitTestCase
 	/**
 	 * 創建 簡單、可變 產品
 	 */
-	public function create(string $type = 'simple', int $qty = 1):void
+	public function create(string $type = 'simple', int $qty = 1):self
 	{
 		match ($type) {
 			'simple' => $this->create_simple($qty),
@@ -31,6 +31,8 @@ class Product extends WC_UnitTestCase
 			'variable_subscription' => $this->create_variable_subscription(),
 			default => $this->create_simple(),
 		};
+
+		return $this;
 	}
 
 	/**

@@ -7,7 +7,6 @@ use J7\Tests\Utils\STDOUT;
 beforeAll(function () {
 	// 測試開始前執行
 	Order::instance();
-	Product::instance();
 });
 
 beforeEach(function () {
@@ -24,12 +23,8 @@ afterAll(function () {
 });
 
 it('訂單創建成功', function () {
+		Order::instance()->create();
 		$order = Order::instance()->order;
-		$order->add_product(Product::instance()->simple_product, 2);
-		$order->calculate_totals();
-
-		$order->save();
-
 
 		$total = $order->get_total();
 		expect($total)->toEqual('200.00');

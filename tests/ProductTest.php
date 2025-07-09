@@ -22,6 +22,7 @@ afterAll(function () {
 });
 
 it('商品創建成功', function () {
+	Product::instance()->create('simple', 1);
 	$products = Product::instance()->products;
 	expect(count($products))->toBeGreaterThan(0);
 	STDOUT::ok('商品創建成功');

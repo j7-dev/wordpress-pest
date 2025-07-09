@@ -26,7 +26,7 @@ class User extends \WP_UnitTestCase
 	/**
 	 * 創建 test 用戶
 	 */
-	public function create($user_login = 'testtest', $user_email = 'testtest@example.com', $role = 'customer'):void
+	public function create($user_login = 'testtest', $user_email = 'testtest@example.com', $role = 'customer'):self
 	{
 		$user = self::factory()->user->create_and_get([
 			'role' => $role,
@@ -37,6 +37,8 @@ class User extends \WP_UnitTestCase
 		$this->user = $user;
 
 		STDOUT::ok('用戶創建成功: #' . $this->user->ID);
+
+		return $this;
 	}
 
 	/**
