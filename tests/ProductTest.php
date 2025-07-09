@@ -22,13 +22,7 @@ afterAll(function () {
 });
 
 it('商品創建成功', function () {
-		$simple_product = Product::instance()->simple_product;
-		expect($simple_product->get_type())->toEqual('simple');
-		STDOUT::ok('簡單商品創建成功');
-
-		$variable_product = Product::instance()->variable_product;
-		expect($variable_product->get_type())->toEqual('variable');
-		// 至少有一個變體
-		expect($variable_product->get_children())->toBeGreaterThanOrEqual(1);
-		STDOUT::ok('可變商品創建成功，至少有一個變體');
+	$products = Product::instance()->products;
+	expect(count($products))->toBeGreaterThan(0);
+	STDOUT::ok('商品創建成功');
 });

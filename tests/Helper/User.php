@@ -26,12 +26,12 @@ class User extends \WP_UnitTestCase
 	/**
 	 * 創建 test 用戶
 	 */
-	public function create()
+	public function create($user_login = 'testtest', $user_email = 'testtest@example.com', $role = 'customer'):void
 	{
 		$user = self::factory()->user->create_and_get([
-			'role' => 'customer',
-			'user_login' => 'testtest',
-			'user_email' => 'testtest@example.com'
+			'role' => $role,
+			'user_login' => $user_login,
+			'user_email' => $user_email
 		]);
 
 		$this->user = $user;

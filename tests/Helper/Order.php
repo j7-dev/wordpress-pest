@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace J7\Tests\Helper;
 
-use J7\Tests\Utils\Log;
+use J7\Tests\Utils\WC_UnitTestCase;
 
 /**
  * Order class
@@ -12,36 +12,12 @@ use J7\Tests\Utils\Log;
  * 2. 有 create 跟 add 方法
  * @see https://rudrastyh.com/woocommerce/create-orders-programmatically.html
  */
-class Order extends \WP_UnitTestCase
+class Order extends WC_UnitTestCase
 {
 	use \J7\WpUtils\Traits\SingletonTrait;
 
 	/** @var \WC_Order */
 	public $order;
-
-	public function __construct()
-	{
-		\add_action('plugins_loaded', [$this, 'required_plugins'], -1);
-		\add_action('init', [$this, 'create']);
-
-
-		\do_action('plugins_loaded');
-		\do_action('after_setup_theme');
-		\do_action('init');
-		\do_action('wp_loaded');
-		\do_action('parse_request');
-		\do_action('send_headers');
-	}
-
-	public function required_plugins()
-	{
-		$required_plugins = [
-			'woocommerce/woocommerce.php'
-		];
-		foreach ($required_plugins as $plugin) {
-			require_once PLUGIN_DIR . $plugin;
-		}
-	}
 
 	/**
 	 * 創建訂單
