@@ -21,6 +21,8 @@ define('WP_DEFAULT_THEME', 'default');
 
 // Test with WordPress debug mode (default).
 define('WP_DEBUG', false);
+define('WP_DEBUG_LOG', false);
+define('WP_DEBUG_DISPLAY', false);
 
 // ** MySQL settings ** //
 
@@ -54,9 +56,9 @@ define('NONCE_SALT',       '4<dU36_OSQW7qO|s1d!Ld=F1jxzD VDwtzXzw#=Kt_jZ7$Gb#ZhB
 
 $table_prefix = 'tests_';   // Only numbers, letters, and underscores please!
 
-define('WP_TESTS_DOMAIN', 'example.org');
+define('WP_TESTS_DOMAIN', 'hpos.local');
 define('WP_TESTS_EMAIL', 'j7.dev.gg@gmail.com');
-define('WP_TESTS_TITLE', 'Test Blog');
+define('WP_TESTS_TITLE', 'Test Mode');
 
 define('WP_PHP_BINARY', 'php');
 
